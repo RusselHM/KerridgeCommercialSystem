@@ -49,11 +49,12 @@ namespace KerridgeCommercialSystem.Classes
             {
                 Console.Clear();
                 Console.WriteLine("Input 1...");
-                Console.WriteLine("=====================================================");
+                Console.WriteLine("======================================================");
 
                 Console.WriteLine("Item Name...");
                  name = Console.ReadLine();
 
+                
                 Console.WriteLine("Choose Category..");
                 string value = Console.ReadLine();
                 if (value == ItemCategory.Books.ToString())
@@ -76,10 +77,11 @@ namespace KerridgeCommercialSystem.Classes
                 else
                     imported = false;
                 Item _item = new Item(name, price, imported, type,tax);
+             
                 _item.ItemCollection1 = new List<Item>();
-                _item.ItemCollection1.Add(_item);
-                _item.ItemCollection1 = _item.CalculateTax(_item.ItemCollection1);
-                items = _item.ItemCollection1;
+                items.Add(_item);
+                _item.ItemCollection1 = items;
+          
                 Console.WriteLine("Enter Another?(Y/N)...");
                 response = Console.ReadKey(false).Key;   
                 if (response != ConsoleKey.Enter)
@@ -96,24 +98,23 @@ namespace KerridgeCommercialSystem.Classes
             decimal price = 0.00m;
             bool imported = false;
             char importedChar = ' ';
-            decimal tax=0m;
+            decimal tax = 0m;
             ItemCategory type;
             Input input = new Input();
-           
+
             ConsoleKey response;
             do
             {
                 Console.Clear();
                 Console.WriteLine("Input 2...");
-                Console.WriteLine("=====================================================");
+                Console.WriteLine("======================================================");
 
                 Console.WriteLine("Item Name...");
                 name = Console.ReadLine();
 
+
                 Console.WriteLine("Choose Category..");
                 string value = Console.ReadLine();
-                
-                
                 if (value == ItemCategory.Books.ToString())
                     type = ItemCategory.Books;
                 else if (value == ItemCategory.Food.ToString())
@@ -133,15 +134,14 @@ namespace KerridgeCommercialSystem.Classes
                     imported = true;
                 else
                     imported = false;
-                Item _item = new Item(name, price, imported, type,tax);
+                Item _item = new Item(name, price, imported, type, tax);
+
                 _item.ItemCollection2 = new List<Item>();
-                _item.ItemCollection2.Add(_item);
-                _item.ItemCollection2 = _item.CalculateTax(_item.ItemCollection2);
-                items = _item.ItemCollection2;
-                
+                items.Add(_item);
+                _item.ItemCollection2 = items;
+           
                 Console.WriteLine("Enter Another?(Y/N)...");
                 response = Console.ReadKey(false).Key;
-                
                 if (response != ConsoleKey.Enter)
                     Console.WriteLine();
                 if (response == ConsoleKey.Y)
@@ -149,7 +149,6 @@ namespace KerridgeCommercialSystem.Classes
                 return items;
             }
             while (response != ConsoleKey.Y && response != ConsoleKey.N);
-            
         }
         public List<Item> Input3(List<Item> items)
         {
@@ -157,7 +156,7 @@ namespace KerridgeCommercialSystem.Classes
             decimal price = 0.00m;
             bool imported = false;
             char importedChar = ' ';
-            decimal tax =0m;
+            decimal tax = 0m;
             ItemCategory type;
             Input input = new Input();
 
@@ -166,10 +165,11 @@ namespace KerridgeCommercialSystem.Classes
             {
                 Console.Clear();
                 Console.WriteLine("Input 3...");
-                Console.WriteLine("=====================================================");
+                Console.WriteLine("======================================================");
 
                 Console.WriteLine("Item Name...");
                 name = Console.ReadLine();
+
 
                 Console.WriteLine("Choose Category..");
                 string value = Console.ReadLine();
@@ -192,11 +192,12 @@ namespace KerridgeCommercialSystem.Classes
                     imported = true;
                 else
                     imported = false;
-                Item _item = new Item(name, price, imported, type,tax);
+                Item _item = new Item(name, price, imported, type, tax);
+
                 _item.ItemCollection3 = new List<Item>();
-                _item.ItemCollection3.Add(_item);
-                _item.ItemCollection3 = _item.CalculateTax(_item.ItemCollection3);
-                items = _item.ItemCollection3;
+                items.Add(_item);
+                _item.ItemCollection3 = items;
+              
                 Console.WriteLine("Enter Another?(Y/N)...");
                 response = Console.ReadKey(false).Key;
                 if (response != ConsoleKey.Enter)

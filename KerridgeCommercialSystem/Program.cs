@@ -24,8 +24,10 @@ namespace KerridgeCommercialSystem
                    myItems = _input.Batches();
             }
             while(response != ConsoleKey.Y && response != ConsoleKey.N);
-            _print.Output(myItems);
-
+            Console.Clear();
+            string output = _print.Output(myItems);
+            Console.Clear();
+            Console.WriteLine(output);
             Console.Read();
             
         }
