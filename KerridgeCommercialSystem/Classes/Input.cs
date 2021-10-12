@@ -49,7 +49,7 @@ namespace KerridgeCommercialSystem.Classes
             {
                 Console.Clear();
                 Console.WriteLine("Input 1...");
-                Console.WriteLine("=====================================================");
+                Console.WriteLine("======================================================");
 
                 Console.WriteLine("Item Name...");
                  name = Console.ReadLine();
