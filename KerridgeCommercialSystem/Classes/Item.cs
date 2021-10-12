@@ -21,10 +21,10 @@ namespace KerridgeCommercialSystem.Classes
             set
             {
                 if (this.Type != ItemCategory.Other)
-                    tax = _calculate.ApplyBasicTax(this.Name, this.Price);
+                    tax =  this.Price * 0.10m;
                 if (this.Imported)
                 {
-                    tax = _calculate.ApplyImportTax(this.Name, this.Price);
+                    tax = this.Price * 0.05m;
                 }
             }
         }

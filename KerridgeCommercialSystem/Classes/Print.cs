@@ -15,38 +15,45 @@ namespace KerridgeCommercialSystem.Classes
             List<Item> collection2 = new List<Item>();
             List<Item> collection3 = new List<Item>();
 
-            collection1 = items.Select(x => x.ItemCollection1).FirstOrDefault();
-            collection2 = items.Select(x => x.ItemCollection2).FirstOrDefault();
-            collection3 = items.Select(x => x.ItemCollection3).FirstOrDefault();
+            var data1 = from item in items
+                        where item.ItemCollection1 != null
+                        select item;
+            var data2 = from item in items
+                        where item.ItemCollection2 != null
+                        select item;
+            var data3 = from item in items
+                        where item.ItemCollection3 != null
+                        select item;
             decimal totalTax = 0m;
             decimal total = 0m;
 
-            foreach(var item in collection1)
+            foreach(var item in data1)
             {
                 totalTax =+ item.Tax;
                 total = +item.Price;
                 Console.WriteLine("Output1\n================== :");
-                output += "\n" + item.Name.Count() + "  " + item.Type.ToString() + " : " + item.Price.ToString() + "\n Sales Taxes : " + item.Tax + "\n Total : " + total;
+                output += "\n" + data1.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + item.Tax + "\nTotal : " + total;
 
 
             }
-            foreach (var item in collection2)
+            foreach (var item in data2)
             {
                 totalTax = +item.Tax;
                 total = +item.Price;
                 Console.WriteLine("Output2\n================== :");
-                output += "\n" + item.Name.Count() + "  " + item.Type.ToString() + " : " + item.Price.ToString() + "\n Sales Taxes : " + item.Tax + "\n Total : " + total;
+                output += "\n" + data2.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + item.Tax + "\nTotal : " + total;
 
             }
-            foreach (var item in collection3)
+            foreach (var item in data3)
             {
                 totalTax = +item.Tax;
                 total = +item.Price;
                 Console.WriteLine("Output3\n================== :");
-                output += "\n" + item.Name.Count() + "  " + item.Type.ToString() + " : " + item.Price.ToString() + "\n Sales Taxes : " + item.Tax + "\n Total : " + total;
+                output += "\n" + data3.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + item.Tax + "\nTotal : " + total;
                
             }
             return output;
+            Console.WriteLine(output.ToString());
         }
         public override string ToString()
         {
