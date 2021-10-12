@@ -26,6 +26,7 @@ namespace KerridgeCommercialSystem
             while(response != ConsoleKey.Y && response != ConsoleKey.N);
             Console.Clear();
             string output = _print.Output(myItems);
+            Console.Clear();
             Console.WriteLine(output);
             Console.Read();
             

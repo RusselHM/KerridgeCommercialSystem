@@ -32,7 +32,8 @@ namespace KerridgeCommercialSystem.Classes
                 totalTax =+ item.Tax;
                 total = +item.Price;
                 Console.WriteLine("Output1\n================== :");
-                output += "\n" + data1.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + item.Tax + "\nTotal : " + total;
+                output += (item.Imported) ? "\n" + data3.Count(f => item.Name.Contains(item.Name)) + " Imported  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + decimal.Round(item.Tax,2) + "\nTotal : " + total :
+                          "\n" + data1.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + decimal.Round(item.Tax, 2) + "\nTotal : " + total;
 
 
             }
@@ -41,7 +42,8 @@ namespace KerridgeCommercialSystem.Classes
                 totalTax = +item.Tax;
                 total = +item.Price;
                 Console.WriteLine("Output2\n================== :");
-                output += "\n" + data2.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + item.Tax + "\nTotal : " + total;
+                output += (item.Imported) ? "\n" + data3.Count(f => item.Name.Contains(item.Name)) + " Imported  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + decimal.Round(item.Tax, 2) + "\nTotal : " + total :
+                          "\n" + data2.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + decimal.Round(item.Tax, 2) + "\nTotal : " + total;
 
             }
             foreach (var item in data3)
@@ -49,11 +51,12 @@ namespace KerridgeCommercialSystem.Classes
                 totalTax = +item.Tax;
                 total = +item.Price;
                 Console.WriteLine("Output3\n================== :");
-                output += "\n" + data3.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + item.Tax + "\nTotal : " + total;
-               
+
+                output += (item.Imported) ? "\n" + data3.Count(f => item.Name.Contains(item.Name)) + " Imported  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + decimal.Round(item.Tax, 2) + "\nTotal : " + total :
+                           "\n" + data3.Count(f => item.Name.Contains(item.Name)) + "  " + item.Name + " : " + item.Price.ToString() + "\nSales Taxes : " + decimal.Round(item.Tax, 2) + "\nTotal : " + total;
             }
             return output;
-            Console.WriteLine(output.ToString());
+            
         }
         public override string ToString()
         {
